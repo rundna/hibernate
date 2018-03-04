@@ -17,6 +17,8 @@ public class Invoice {
     public Invoice(String number) {
         this.number = number;
     }
+    public Invoice(){}
+
     @Id
     @NotNull
     @GeneratedValue

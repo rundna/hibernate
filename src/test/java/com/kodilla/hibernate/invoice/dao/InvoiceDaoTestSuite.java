@@ -50,6 +50,13 @@ public class InvoiceDaoTestSuite {
 
         Assert.assertEquals("1/03/2018",i1.getInvoice().getNumber());
 
+        //CleanUp
+                try {
+                invoiceDao.delete(invoice1);
+            } catch (Exception e) {
+                //do nothing
+            }
+
 
 
     }
