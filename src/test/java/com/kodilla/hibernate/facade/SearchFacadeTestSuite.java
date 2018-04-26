@@ -21,8 +21,8 @@ public class SearchFacadeTestSuite {
     private CompanyDao companyDao;
     @Autowired
     private EmployeeDao employeeDao;
-    @Autowired
-    private QueryFacade queryFacade;
+    //@Autowired
+    //private QueryFacade queryFacade;
 
     @Test
     public void testSearchLastNameLike() {
