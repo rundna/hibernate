@@ -7,13 +7,13 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-//@NamedQuery(
-//        name = "Company.searchByFirstThreeLetters",
-//        query = "FROM Company WHERE SUBSTRING(name,1,:LENGHT) like :NAME")
-
-@NamedQuery(
+@NamedQueries({
+        @NamedQuery(
+        name = "Company.searchByFirstThreeLetters",
+        query = "FROM Company WHERE SUBSTRING(name,1,:LENGHT) like :NAME"),
+        @NamedQuery(
         name = "Company.searchCompanyLike",
-        query = "FROM Company WHERE COMPANY_NAME LIKE CONCAT('%', :NAME, '%')")
+        query = "FROM Company WHERE COMPANY_NAME LIKE CONCAT('%', :NAME, '%')")})
 
 @Entity
 @Table(name="COMPANIES")
