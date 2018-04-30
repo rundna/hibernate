@@ -21,8 +21,8 @@ public class SearchFacadeTestSuite {
     private CompanyDao companyDao;
     @Autowired
     private EmployeeDao employeeDao;
-    //@Autowired
-    //private QueryFacade queryFacade;
+    @Autowired
+    private QueryFacade queryFacade;
 
     @Test
     public void testSearchLastNameLike() {
@@ -32,7 +32,8 @@ public class SearchFacadeTestSuite {
         employeeDao.save(new Employee("Linda", "Kovalsky"));
 
         //When
-        List<Employee> list = employeeDao.searchLastNameLike("cks");
+
+        List<Employee> list = queryFacade.searchLastNameLike("cks");
 
         //Then
         Assert.assertEquals(1,list.size());
@@ -49,14 +50,14 @@ public class SearchFacadeTestSuite {
     public void testSearchCompanyLike() {
         //Given
         companyDao.save(new Company("Software Machine"));
-        companyDao.save(new Company("Data Maesters"));
+        companyDao.save(new Company("Data Meesters"));
         companyDao.save(new Company("Grey Matter"));
 
         //When
-        List<Company> list = companyDao.searchCompanyLike("Mat");
+        List<Company> list = queryFacade.searchCompanyLike("Ma");
 
         //Then
-        Assert.assertEquals(1,list.size());
+        Assert.assertEquals(2,list.size());
 
         //CleanUp
         try {
